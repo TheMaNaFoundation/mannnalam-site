@@ -157,12 +157,15 @@ document.addEventListener('DOMContentLoaded', () => {
         teamMembers.forEach(container => {
             container.addEventListener('click', () => {
                 const parent = container.closest('.team-member');
-                const img = container.querySelector('img').src;
+                const imgElement = container.querySelector('img');
+                const img = imgElement.src;
+                const imgStyle = imgElement.getAttribute('style') || '';
                 const name = parent.querySelector('h3').textContent;
                 const title = parent.querySelector('.member-title').textContent;
                 const desc = parent.querySelector('.member-desc').textContent;
                 
                 modalImg.src = img;
+                modalImg.setAttribute('style', imgStyle);
                 modalName.textContent = name;
                 modalTitle.textContent = title;
                 modalDesc.textContent = desc;
