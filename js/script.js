@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Number Counter Logic
-    const counterEl = document.getElementById('counter');
-    if (counterEl) {
+    const counterEls = document.querySelectorAll('.counter');
+    counterEls.forEach((counterEl) => {
         let hasCounted = false;
-        const targetNumber = 1000;
+        const targetNumber = Number(counterEl.dataset.target) || 0;
         const duration = 2000; // ms
 
         const animateCounter = () => {
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         observer.observe(counterEl);
-    }
+    });
 
     // Apple-style Continuous Scroll Zoom Animation
     const stickyContainer = document.querySelector('.intro-video-container');
