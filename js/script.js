@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const step = (timestamp) => {
                 if (!start) start = timestamp;
                 const progress = Math.min((timestamp - start) / duration, 1);
-                counterEl.innerText = Math.floor(progress * targetNumber);
+                counterEl.innerText = Math.floor(progress * targetNumber).toLocaleString();
                 if (progress < 1) {
                     window.requestAnimationFrame(step);
                 }
@@ -159,13 +159,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 const parent = container.closest('.team-member');
                 const imgElement = container.querySelector('img');
                 const img = imgElement.src;
-                const imgStyle = imgElement.getAttribute('style') || '';
+                // Only carry over object-position (a simple framing hint that scales fine).
+                // The thumbnail's --base-scale zoom is tuned for the small round crop and
+                // blows up badly at the modal's much larger size, so it's intentionally dropped.
+                const objectPosition = imgElement.style.objectPosition || '';
                 const name = parent.querySelector('h3').textContent;
                 const title = parent.querySelector('.member-title').textContent;
                 const desc = parent.querySelector('.member-desc').textContent;
-                
+
                 modalImg.src = img;
-                modalImg.setAttribute('style', imgStyle);
+                modalImg.setAttribute('style', objectPosition ? `object-position: ${objectPosition};` : '');
                 modalName.textContent = name;
                 modalTitle.textContent = title;
                 modalDesc.textContent = desc;

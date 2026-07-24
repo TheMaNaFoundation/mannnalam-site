@@ -170,7 +170,7 @@ nav .btn-primary:hover, .inner-nav .btn-primary:hover {
 
 /* --- VISION SECTION --- */
 .vision-section {
-    padding: 15rem 5% 12rem 5%;
+    padding: 9rem 5% 8rem 5%;
     background-color: var(--bg-color); /* Cream */
     position: relative;
     overflow: visible; /* Prevent clipping of SVG if it hangs slightly */
@@ -732,7 +732,8 @@ footer {
     flex: 1;
     border-radius: 140px 140px 15px 15px; /* Follows the arch theme */
     overflow: hidden;
-    height: 400px;
+    aspect-ratio: 260 / 340; /* Matches .member-photo-container so the crop is never stretched */
+    height: auto;
     background-color: var(--accent-color);
 }
 .modal-img-container img {
@@ -775,7 +776,8 @@ footer {
         gap: 1.5rem;
     }
     .modal-img-container {
-        height: 300px;
+        max-width: 320px;
+        margin: 0 auto;
     }
 }
 
@@ -862,6 +864,161 @@ footer {
     margin-bottom: -30px;
     position: relative;
     z-index: 2;
+}
+
+/* --- GROW TO KNOW CAMPAIGN PAGE --- */
+.hero-lead {
+    color: var(--white);
+    font-size: 1.25rem;
+    max-width: 640px;
+    margin: 0 auto;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.campaign-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    padding: 4rem 5%;
+    background-color: var(--primary-color);
+    text-align: center;
+}
+
+.campaign-stat-number {
+    font-size: 3rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.campaign-stat-label {
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.campaign-stats-caption {
+    text-align: center;
+    padding: 2rem 5%;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+}
+
+.kit-section {
+    padding: 8rem 5%;
+    background-color: var(--bg-color);
+    text-align: center;
+}
+
+.kit-section-header {
+    max-width: 700px;
+    margin: 0 auto 4rem;
+}
+
+.kit-section-header h2 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.kit-section-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.kit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 2rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.kit-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.kit-card:hover {
+    transform: translateY(-8px);
+}
+
+.kit-icon {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.kit-card h4 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.6rem;
+}
+
+.kit-card p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+}
+
+.workshop-steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    text-align: left;
+}
+
+.workshop-steps-list li {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+}
+
+.workshop-step-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+
+.workshop-step-text h4 {
+    color: var(--primary-color);
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.workshop-step-text p {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* MOBILE MENU STYLES */
@@ -977,7 +1134,8 @@ footer {
     }
 
     .modal-img-container {
-        height: 400px;
+        max-width: 320px;
+        margin: 0 auto;
     }
 }
 
@@ -996,6 +1154,18 @@ footer {
 
     .hero-subtitle {
         font-size: 1rem;
+    }
+
+    .hero-lead {
+        font-size: 1.05rem;
+    }
+
+    .campaign-stat-number {
+        font-size: 2.25rem;
+    }
+
+    .kit-section-header h2 {
+        font-size: 2.1rem;
     }
 
     .vision-title {
